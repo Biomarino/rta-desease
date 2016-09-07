@@ -1,0 +1,59 @@
+---
+title: "Modelo espacial de diseminación del contagio"
+author: "Diego J. Lizcano, Nelson Fernandez"
+date: "September 7, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Cordoba
+
+Actualmente,  el  departamento  se  encuentra  en  situación  de  brote  por  dengue,  Córdoba  aporta  el  3%  de  los  casos  del  país,  los cuales provienen de los siguientes municipios: Montería 228 (29%), Lorica 88 (1 1,2%), Pueblo Nuevo 60 (7,6%), Ciénaga de Oro 54 (6,8  %)  y  Ayapel  41  (5,2%)  y  el  resto  de  municipios  con  314  casos  (40  %).  Se  han  reportado  51  casos  de  dengue  grave  en  13 municipios  así:  Sahagún  22  (43,1%),Pueblo  Nuevo  6  (1 1,7%),  Ciénaga  de  Oro  4  (7,8%),  Chinú  4  (7,8%),  Pueblo  Nuevo  3  (5,8%), Buenavista  2  (3,9%),  Lorica  2  (3,9%),  San  Andrés  de  Sotavento  2  (3,9%),  Tuchín  2  (3,9%),  Ayapel  1(1,9%),  Cereté  1  (1,9%),  San
+Pelayo 1(1,9%) y Puerto Libertador 1(1,9%).
+
+Modelar la respuesta socio-institucional ante las enfermedades tropicales de estudio: Dengue, Leishmaniasis y Chagas.
+Los actividades específicos son:
+
+1. Caracterizar las interacciones de los actores involucrados en la epidemiología de las enfermedades reportadas, en cuanto a sus hábitos de manejo y respuesta [NF1].
+
+  a. Producto: Evaluación Institucional y Red de interacciones de los actores.
+  
+2. Estimar las redes de conectividad-infección que genera la movilidad entre poblaciones y subpoblaciones.
+
+  a. Producto: Modelo espacial de diseminación del contagio.
+  
+3. Estimar la relación entre red de contagio desde casos reportados en el sistema departamental de salud, sobre la base de la espacialización de los casos.
+
+  a. Producto: Red de contagio (de los casos reportados). [NF1] Encuestas a revisar.
+  
+  
+
+```{r getmap,echo=TRUE}
+
+library(dismo)
+library(rgdal)
+library(dplyr)
+library(ggmap)
+library(RColorBrewer)
+
+ColMap<-getData('GADM', country='COL', level=2) #get colombia map
+CordobaMap<-ColMap[ColMap@data$NAME_1=="Córdoba",] # extract Cordoba
+plot(CordobaMap)
+
+
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
